@@ -48,8 +48,7 @@ export class BrowserAutomation {
           result[key] = (await elements[0].textContent()) || ''
         } else {
           result[key] = await Promise.all(
-            elements.map((el) => el.textContent() || '')
-          )
+elements.map(async (el) => (await el.textContent()) || '')          )
         }
       } catch {
         result[key] = ''
